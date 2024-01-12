@@ -14,7 +14,7 @@ import pya3rt
 
 line_bot_api = LineBotApi(settings.CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(settings.CHANNEL_SECRET)
-talk_api = settings.TALK_API
+# talk_api = settings.TALK_API
 
 class CallbackView(View):
     def get(self, request, *args, **kwargs):

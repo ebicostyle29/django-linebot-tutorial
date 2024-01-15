@@ -32,7 +32,7 @@ class CallbackView(View):
         except InvalidSignatureError:
 
             return HttpResponseBadRequest()
-        except Exception as e:
+        except LineBotApiError as e:
 
             print(e)
             return HttpResponseServerError()

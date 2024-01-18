@@ -15,8 +15,8 @@ import pya3rt
 line_bot_api = LineBotApi(settings.CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(settings.CHANNEL_SECRET)
 
-print(settings.CHANNEL_ACCESS_TOKEN)
-print(settings.CHANNEL_SECRET)
+print('CHANNEL_ACCESS_TOKEN =', settings.CHANNEL_ACCESS_TOKEN)
+print('CHANNEL_SECRET =', settings.CHANNEL_SECRET)
 
 # talk_api = settings.TALK_API
 
@@ -40,7 +40,7 @@ class CallbackView(View):
         except InvalidSignatureError:
 
             return HttpResponseBadRequest()
-        except LineBotApiError as e:
+        except Exception as e:
 
             print(e)
             return HttpResponseServerError()

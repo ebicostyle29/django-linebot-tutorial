@@ -26,6 +26,10 @@ class CallbackView(View):
 
     def post(self, request, *args, **kwargs):
 
+        print("HTTP Method:", request.method)
+        print("Headers:", request.headers)
+        print("Body:", request.body.decode('utf-8'))
+
         signature = request.META['HTTP_X_LINE_SIGNATURE']
 
         body = request.body.decode('utf-8')

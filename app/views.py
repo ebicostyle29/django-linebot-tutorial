@@ -54,7 +54,7 @@ class CallbackView(View):
 
 
 
-    # @staticmethod
+    @staticmethod
     @handler.add(MessageEvent, message=TextMessage)
     def message_event(event):
         # オウム返しする

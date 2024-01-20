@@ -8,7 +8,7 @@ from django.conf import settings
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
-from linebot.models import PostbackEvent
+# from linebot.models import PostbackEvent
 
 import pya3rt
 
@@ -25,7 +25,7 @@ class CallbackView(View):
     def get(self, request, *args, **kwargs):
         return HttpResponse('OK')
 
-    @handler.add(PostbackEvent)
+    # @handler.add(PostbackEvent)
     def post(self, request, *args, **kwargs):
 
         signature = request.META['HTTP_X_LINE_SIGNATURE']
@@ -38,7 +38,7 @@ class CallbackView(View):
         except InvalidSignatureError:
 
             return HttpResponseBadRequest()
-        except Exception as e:
+        except LineBotApiError as e:
 
             print(e)
             return HttpResponseServerError()
